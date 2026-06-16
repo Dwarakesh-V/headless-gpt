@@ -708,7 +708,12 @@ async def main() -> None:
     print(f"Clipboard contains {kind_label} - sending to {MODEL}")
 
     response = await rcv_web_int(MODEL, payload)
-    pyperclip.copy(response)
+
+    with open(Path.home() / "ttcon.txt", "w") as f:
+        f.write(response)
+    with open(Path.home() / "ttrem.txt", "w") as f:
+        f.write(response)
+
     send_notification("Updates","Content updated","dialog-information")
 
 if __name__ == "__main__":
