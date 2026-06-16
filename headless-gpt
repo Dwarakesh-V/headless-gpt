@@ -713,7 +713,7 @@ async def main() -> None:
         f.write(response)
     with open(Path.home() / "ttrem.txt", "w") as f:
         f.write(response)
-
+    pyperclip.copy(response)
     send_notification("Updates","Content updated","dialog-information")
 
 if __name__ == "__main__":
